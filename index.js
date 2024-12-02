@@ -1,25 +1,16 @@
-const http = require('http')
-const fs = require('fs');
+const express = require('express');
 
-const PORT = 3000;
+const app = express();
 
-const server = http.createServer((req, res) => {
-    const logs = `${Date.now()} - Log Created for ${req.url} \n`
-    fs.appendFile('log.txt', logs , (err, data) => {
-        switch(req.url){
-            case '/about':
-                res.end('It is /about page')
-                break;
-            case '/home':
-                res.end('It is homepage')
-                break;
-            default:
-                res.end('404 not found')
-                break;
-        }
-    })
-});
+app.get('/',(req,res) => {
+    return res.send('HomePage')
+})
 
-server.listen(PORT, ()=>{
+app.get('/about',(req,res) => {
+    const username = req.query.name || 'Kavya Jain'
+    return res.send(`Hello from ${username} of Age ${req.query.age}`) //http://localhost:3000/about?name=Kavya&&age=27
+})
+
+app.listen(3000, ()=> {
     console.log('SERVER CONNECTED')
 })
