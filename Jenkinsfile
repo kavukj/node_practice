@@ -1,5 +1,4 @@
-pipeline{
-  
+pipeline {
   agent any
 
   stages {
@@ -8,8 +7,8 @@ pipeline{
       steps {
         echo "Building the project"
         script {
-          def test = 4+6
-          echo test
+          def test = 4 + 6
+          echo "The result of test is: ${test}"
         }
       }
     }
@@ -26,5 +25,4 @@ pipeline{
       }
     }
   }
-  
 }
