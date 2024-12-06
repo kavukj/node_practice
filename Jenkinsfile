@@ -10,6 +10,7 @@ pipeline{
         script {
           def test = 4+6
           echo test
+        }
       }
     }
 
