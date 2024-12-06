@@ -7,6 +7,9 @@ pipeline{
     stage("build") {
       steps {
         echo "Building the project"
+        script {
+          def test = 4+6
+          echo test
       }
     }
 
