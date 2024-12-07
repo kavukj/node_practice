@@ -11,7 +11,7 @@ pipeline {
         echo "Building the project"
         script{
           sh '''
-          docker build -t ${APP_NAME}:latest
+          docker build -t ${APP_NAME}:latest .
           '''
         }
       }
